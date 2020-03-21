@@ -8,6 +8,8 @@ I'll keep this repo with the graphs daily updated.
 
 The data source is from [Here](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
 
+## China Vs Portugal day to day death comparison
+![Graph_CN_vs_PT](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph.png?raw=true)
 
 
 __Be safe,__
