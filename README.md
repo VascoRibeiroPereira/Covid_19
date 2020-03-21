@@ -6,12 +6,24 @@ I'm a Data Science Student, so I'm in a learning process and every input will be
 
 I'll keep this repo with the graphs daily updated.
 
-The data source is from [Here](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
+### Files
+´script.R´ performs the data preparation and then followed by the steps required as described:
 
-## China Vs Portugal day to day death comparison
+- Download of the data
+- Subset the countries for more than 30 observations and make a plot of date vs death for each remaining country
+- Filter and merges Portugal and China data from day 1 to present
+- Plot the Day vs Death and Day vs New Cases for the China and Portugal data comparison
+
+´PT_CN_merged_Graph.png´ is the death comparison between China and Portugal
+´PT_CN_merged_Graph_Cases.png´ is the new cases comparison between China and Portugal
+´subsetGraphs.png´ is the death comparison for all countries with more than 30 observations of data
+
+### The data source is from [Here](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
+
+#### China Vs Portugal day to day death comparison
 ![Graph_CN_vs_PT](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph.png?raw=true)
 
-## China Vs Portugal day to day new cases comparison
+#### China Vs Portugal day to day new cases comparison
 ![Graph_CN_vs_PT_Cases](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph_Cases.png?raw=true)
 
 
