@@ -11,6 +11,9 @@ The data source is from [Here](https://www.ecdc.europa.eu/en/publications-data/d
 ## China Vs Portugal day to day death comparison
 ![Graph_CN_vs_PT](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph.png?raw=true)
 
+## China Vs Portugal day to day new cases comparison
+![Graph_CN_vs_PT_Cases](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph_Cases.png?raw=true)
+
 
 __Be safe,__
 
