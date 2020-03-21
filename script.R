@@ -44,7 +44,7 @@ PT_CN_merged$GeoId <- factor(PT_CN_merged$GeoId)
 gPT_CN <- ggplot(PT_CN_merged, aes(DayNum, Deaths))
 PT_CN_merged_Graph <- gPT_CN + geom_smooth(aes(color = GeoId)) + coord_cartesian(ylim = c(0, 120)) + labs(x = "Days") + labs(y = "Deaths") + labs(title = "Portugal vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "PT_CN_merged_Graph")
+png(filename = "PT_CN_merged_Graph.png")
 PT_CN_merged_Graph
 dev.off()
 
