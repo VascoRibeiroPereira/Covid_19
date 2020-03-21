@@ -69,7 +69,7 @@ dev.off()
 
 # Ploting the Data
 gPT_CN_Cases <- ggplot(PT_CN_merged, aes(DayNum, Cases))
-PT_CN_merged_Graph_Cases <- gPT_CN_Cases + geom_smooth(aes(color = GeoId)) + coord_cartesian(ylim = c(0, 5000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Portugal vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
+PT_CN_merged_Graph_Cases <- gPT_CN_Cases + geom_smooth(aes(color = GeoId)) + coord_cartesian(ylim = c(0, 5000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Portugal vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "PT_CN_merged_Graph_Cases.png")
 PT_CN_merged_Graph_Cases
