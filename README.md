@@ -20,6 +20,8 @@ I'll keep this repo with the graphs daily updated.
 
 `subsetGraphs.png` is the death comparison for all countries with more than 30 observations of data
 
+`subsetGraphsCases.png` is the new cases comparison for all countries with more than 30 observations of data
+
 ### The data source is from:
 
 [Here](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
