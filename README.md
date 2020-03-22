@@ -36,6 +36,7 @@ Vertical Lines represent the **emergency state** declaration for CN (red) and PT
 
 Vertical Lines represent the **emergency state** declaration for CN (red) and PT (blue).
 
+With the script `PT_hospitals_capacity.R` , we can check how many available beds are in the Portuguese hospitals in the present day. As for January 2020 we have about **2389** available hospital beds in Portugal, hopefully more due to the COVID-19 preparations.
 
 __Be safe,__
 

@@ -75,5 +75,18 @@ png(filename = "PT_CN_merged_Graph_Cases.png")
 PT_CN_merged_Graph_Cases
 dev.off()
 
+## Only Portugal Data with the horizontal line for the limit capacity of the PT hospitals
+
+source("PT_hospitals_capacity.R", echo = TRUE)
+
+gPTData_Cases <- ggplot(PTdata, aes(DayNum, Cases))
+PTData_Graph_Cases <- gPTData_Cases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Portugal new cases") + theme(plot.title = element_text(hjust = 0.5))
+
+png(filename = "PTData_Graph_Cases.png")
+PTData_Graph_Cases
+dev.off()
+
+
+
 ## source("script.R", echo = TRUE)
 
