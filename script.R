@@ -46,7 +46,7 @@ PT_CN_merged$GeoId <- factor(PT_CN_merged$GeoId)
 
         # Ploting the Data
 gPT_CN <- ggplot(PT_CN_merged, aes(DayNum, Deaths))
-PT_CN_merged_Graph <- gPT_CN + geom_smooth(aes(color = GeoId)) + coord_cartesian(ylim = c(0, 120)) + labs(x = "Days") + labs(y = "Deaths") + labs(title = "Portugal vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
+PT_CN_merged_Graph <- gPT_CN + geom_smooth(aes(color = GeoId)) + geom_vline(xintercept = c(16,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 120)) + labs(x = "Days") + labs(y = "Deaths") + labs(title = "Portugal vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "PT_CN_merged_Graph.png")
 PT_CN_merged_Graph
@@ -69,7 +69,7 @@ dev.off()
 
 # Ploting the Data
 gPT_CN_Cases <- ggplot(PT_CN_merged, aes(DayNum, Cases))
-PT_CN_merged_Graph_Cases <- gPT_CN_Cases + geom_smooth(aes(color = GeoId)) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Portugal vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
+PT_CN_merged_Graph_Cases <- gPT_CN_Cases + geom_smooth(aes(color = GeoId)) + geom_vline(xintercept = c(16,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Portugal vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "PT_CN_merged_Graph_Cases.png")
 PT_CN_merged_Graph_Cases
