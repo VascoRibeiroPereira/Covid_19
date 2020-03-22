@@ -47,7 +47,7 @@ ES_CN_merged$GeoId <- factor(ES_CN_merged$GeoId)
 
 # Ploting the Data
 gES_CN <- ggplot(ES_CN_merged, aes(DayNum, Deaths))
-ES_CN_merged_Graph <- gES_CN + geom_smooth(aes(color = GeoId)) + geom_vline(xintercept = c(45,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 700)) + labs(x = "Days") + labs(y = "Deaths") + labs(title = "Italy vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
+ES_CN_merged_Graph <- gES_CN + geom_smooth(aes(color = GeoId)) + geom_vline(xintercept = c(45,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 700)) + labs(x = "Days") + labs(y = "Deaths") + labs(title = "Spain vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "ES_CN_merged_Graph.png")
 ES_CN_merged_Graph
@@ -70,7 +70,7 @@ dev.off()
 
 # Ploting the Data
 gES_CN_Cases <- ggplot(ES_CN_merged, aes(DayNum, Cases))
-ES_CN_merged_Graph_Cases <- gES_CN_Cases + geom_smooth(aes(color = GeoId)) + geom_vline(xintercept = c(45,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 6000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Italy vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
+ES_CN_merged_Graph_Cases <- gES_CN_Cases + geom_smooth(aes(color = GeoId)) + geom_vline(xintercept = c(45,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 6000)) + labs(x = "Days") + labs(y = "Cases") + labs(title = "Spain vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "ES_CN_merged_Graph_Cases.png")
 ES_CN_merged_Graph_Cases
