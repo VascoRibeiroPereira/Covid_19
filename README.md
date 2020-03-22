@@ -36,3 +36,9 @@ I'll keep this repo with the graphs daily updated.
 __Be safe,__
 
 __Stay Home!__
+
+- *31/01/2020, Emergency state was declared by WHO in CN*
+- *31/01/2020, Emergency state was declared by IT*
+- *16/03/2020, Emergency state was declared in ES*
+- *16/03/2020, Emergency state was declared in DE*
+- *18/03/2020, Emergency state was declared in PT*
