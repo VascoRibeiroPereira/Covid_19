@@ -86,7 +86,5 @@ png(filename = "PTData_Graph_Cases.png")
 PTData_Graph_Cases
 dev.off()
 
-
-
 ## source("script.R", echo = TRUE)
 

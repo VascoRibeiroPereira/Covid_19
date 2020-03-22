@@ -26,6 +26,14 @@ I'll keep this repo with the graphs daily updated.
 
 [Here](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
 
+
+### Portugal New Cases Evolution
+
+![PTData_Graph_Cases](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PTData_Graph_Cases.png?raw=true)
+
+Horizontal line represent the available beds in the Portuguese hospitals.
+**Let's keep the new cases curve under this line!**
+
 #### China Vs Portugal day to day death comparison
 ![Graph_CN_vs_PT](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph.png?raw=true)
 
@@ -37,6 +45,7 @@ Vertical Lines represent the **emergency state** declaration for CN (red) and PT
 Vertical Lines represent the **emergency state** declaration for CN (red) and PT (blue).
 
 With the script `PT_hospitals_capacity.R` , we can check how many available beds are in the Portuguese hospitals in the present day. As for January 2020 we have about **2389** available hospital beds in Portugal, hopefully more due to the COVID-19 preparations.
+Data from [Here](https://transparencia.sns.gov.pt/).
 
 __Be safe,__
 
