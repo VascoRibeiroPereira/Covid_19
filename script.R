@@ -86,10 +86,65 @@ png(filename = "PTData_Graph_Cases.png")
 PTData_Graph_Cases
 dev.off()
 
+## Portugal total cases
+
+PTdataArranged <- arrange(PTdata, DateRep) ## it may be better to arrange the data in ascending order
+
+Cases <- PTdataArranged[1,5]
+total_Cases <- tibble()
+total_Cases <- bind_rows(total_Cases, Cases)
+for (i in 2:length(PTdataArranged$Cases)){
+        
+        Cases <- (Cases + PTdataArranged[i, 5])
+        total_Cases <- bind_rows(total_Cases, Cases)
+        
+}
+PTdataArranged <- bind_cols(PTdataArranged, "Total Cases" = total_Cases$Cases)
+
+source("PT_hospitals_capacity.R", echo = TRUE)
+
+gPTData_TotalCases <- ggplot(PTdataArranged, aes(DayNum, `Total Cases`))
+PTData_Graph_TotalCases <- gPTData_TotalCases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Total Cases") + labs(title = "Portugal Total cases") + theme(plot.title = element_text(hjust = 0.5))
+
+png(filename = "PTData_Graph_TotalCases.png")
+PTData_Graph_TotalCases
+dev.off()
+
+## SIMULATING DATA
+
+source("PT_Cases_percentage.R", echo = TRUE)
+
+increasePercentage <- as.numeric(PTdataArranged[length(PTdataArranged$DateRep),11])/100
+
+simulationNewCasesPT <- data.frame(DateRep = PTdataArranged$DateRep, `Total Cases` = PTdataArranged$`Total Cases`, ID = rep("Real", length(PTdataArranged$DateRep)))
+TotalCasesSim <- simulationNewCasesPT$Total.Cases[length(simulationNewCasesPT$Total.Cases)]
+lastDate <- as.Date(simulationNewCasesPT$DateRep[length(simulationNewCasesPT$DateRep)])
+simDate <- seq.Date(lastDate+1, lastDate+5, by = "day")
+
+for (i in 1:5) {
+        
+        TotalCasesSim[i+1] <- TotalCasesSim[i] + TotalCasesSim[i] * increasePercentage
+        #simTemp <- bind_cols(simTemp, TotalCasesSim)
+
+}
+simTemp <- data.frame(DateRep = simDate, `Total Cases` = TotalCasesSim[2:6], ID = rep("Simulated", 5))
+
+simulationNewCasesPT$DateRep <- as.Date(simulationNewCasesPT$DateRep)
+simulationNewCasesPT <- bind_rows(simulationNewCasesPT, simTemp)
+simulationNewCasesPT <- as_tibble(simulationNewCasesPT)
+
+gPTData_SimCases <- ggplot(simulationNewCasesPT, aes(DateRep, Total.Cases))
+PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
+
+png(filename = "PTData_Graph_SimCases.png")
+PTData_Graph_SimCases
+dev.off()
+
+
 ## source("script.R", echo = TRUE)
 source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
 source("UK_CN.R", echo = TRUE)
-source("PT_Cases_percentage.R", echo = TRUE)
+
 
 

@@ -1,15 +1,15 @@
-PTdataArranged <- arrange(PTdata, DateRep) ## it may be better to arrange the data in ascending order
+##PTdataArranged <- arrange(PTdata, DateRep) ## it may be better to arrange the data in ascending order
 
-Cases <- PTdataArranged[1,5]
-total_Cases <- tibble()
-total_Cases <- bind_rows(total_Cases, Cases)
-for (i in 2:length(PTdataArranged$Cases)){
+##Cases <- PTdataArranged[1,5]
+##total_Cases <- tibble()
+##total_Cases <- bind_rows(total_Cases, Cases)
+##for (i in 2:length(PTdataArranged$Cases)){
         
-        Cases <- (Cases + PTdataArranged[i, 5])
-        total_Cases <- bind_rows(total_Cases, Cases)
+  ##      Cases <- (Cases + PTdataArranged[i, 5])
+  ##    total_Cases <- bind_rows(total_Cases, Cases)
         
-}
-PTdataArranged <- bind_cols(PTdataArranged, "Total Cases" = total_Cases$Cases)
+##}
+##PTdataArranged <- bind_cols(PTdataArranged, "Total Cases" = total_Cases$Cases)
 
 Percentage <- data.frame("Total Cases" = NA)
 Percentage_Cases <- as_tibble()
