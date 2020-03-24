@@ -34,6 +34,8 @@ I'll keep this repo with the graphs daily updated.
 Horizontal line represent the available beds in the Portuguese hospitals.
 **Let's keep the new cases curve under this line!**
 
+![percentageNewCasesPT](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/percentageNewCasesPT.png?raw=true)
+
 #### China Vs Portugal day to day death comparison
 ![Graph_CN_vs_PT](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PT_CN_merged_Graph.png?raw=true)
 
