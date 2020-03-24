@@ -89,6 +89,7 @@ dev.off()
 ## source("script.R", echo = TRUE)
 source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
+source("UK_CN.R", echo = TRUE)
 source("PT_Cases_percentage.R", echo = TRUE)
 
 

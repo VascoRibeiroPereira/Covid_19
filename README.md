@@ -58,3 +58,4 @@ __Stay Home!__
 - *16/03/2020, Emergency state was declared in ES*
 - *16/03/2020, Emergency state was declared in DE*
 - *18/03/2020, Emergency state was declared in PT*
+- *23/03/2020, Lock Down was declared in UK*
