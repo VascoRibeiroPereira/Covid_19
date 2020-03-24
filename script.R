@@ -134,7 +134,7 @@ simulationNewCasesPT <- bind_rows(simulationNewCasesPT, simTemp)
 simulationNewCasesPT <- as_tibble(simulationNewCasesPT)
 
 gPTData_SimCases <- ggplot(simulationNewCasesPT, aes(DateRep, Total.Cases))
-PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
+PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_hline(yintercept = capacity_PT) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "PTData_Graph_SimCases.png")
 PTData_Graph_SimCases
