@@ -114,7 +114,7 @@ dev.off()
 
 source("PT_Cases_percentage.R", echo = TRUE)
 
-increasePercentage <- as.numeric(PTdataArranged[length(PTdataArranged$DateRep),11])/100
+increasePercentage <- sum(tail(PTdataArranged$`Percentage Cases`,5))/5
 
 simulationNewCasesPT <- data.frame(DateRep = PTdataArranged$DateRep, `Total Cases` = PTdataArranged$`Total Cases`, ID = rep("Real", length(PTdataArranged$DateRep)))
 TotalCasesSim <- simulationNewCasesPT$Total.Cases[length(simulationNewCasesPT$Total.Cases)]
@@ -123,18 +123,23 @@ simDate <- seq.Date(lastDate+1, lastDate+5, by = "day")
 
 for (i in 1:5) {
         
-        TotalCasesSim[i+1] <- TotalCasesSim[i] + TotalCasesSim[i] * increasePercentage
+        TotalCasesSim[i+1] <- TotalCasesSim[i] + TotalCasesSim[i] * increasePercentage/100
         #simTemp <- bind_cols(simTemp, TotalCasesSim)
 
 }
 simTemp <- data.frame(DateRep = simDate, `Total Cases` = TotalCasesSim[2:6], ID = rep("Simulated", 5))
 
+simTemp$Total.Cases <- as.integer(simTemp$Total.Cases)
+simTemp$ID <- as.character(simTemp$ID)
+
 simulationNewCasesPT$DateRep <- as.Date(simulationNewCasesPT$DateRep)
+simulationNewCasesPT$Total.Cases <- as.integer(simulationNewCasesPT$Total.Cases)
+
 simulationNewCasesPT <- bind_rows(simulationNewCasesPT, simTemp)
 simulationNewCasesPT <- as_tibble(simulationNewCasesPT)
 
 gPTData_SimCases <- ggplot(simulationNewCasesPT, aes(DateRep, Total.Cases))
-PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_hline(yintercept = capacity_PT) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
+PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_text(size=2, aes(label=ifelse(ID=="Simulated", Total.Cases, "")), hjust=1.2, vjust=.5) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "PTData_Graph_SimCases.png")
 PTData_Graph_SimCases
