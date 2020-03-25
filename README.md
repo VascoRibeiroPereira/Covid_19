@@ -29,6 +29,10 @@ I'll keep this repo with the graphs daily updated.
 
 ### Portugal New Cases Evolution
 
+Simulation of new cases for the next 5 days in Portugal. The horizontal line is the hospital capacity.
+
+![PTData_Graph_SimCases](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PTData_Graph_SimCases.png?raw=true)
+
 ![PTData_Graph_Cases](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/PTData_Graph_Cases.png?raw=true)
 
 Horizontal line represent the available beds in the Portuguese hospitals.
