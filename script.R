@@ -139,7 +139,7 @@ simulationNewCasesPT <- bind_rows(simulationNewCasesPT, simTemp)
 simulationNewCasesPT <- as_tibble(simulationNewCasesPT)
 
 gPTData_SimCases <- ggplot(simulationNewCasesPT, aes(DateRep, Total.Cases))
-PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_text(size=2, aes(label=ifelse(ID=="Simulated", Total.Cases, "")), hjust=1.2, vjust=.5) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
+PTData_Graph_SimCases <- gPTData_SimCases + geom_point(aes(color = ID)) + geom_text(size=3, aes(label=ifelse(ID=="Simulated", Total.Cases, "")), hjust=1.2, vjust=.5) + labs(y = "Total Cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "PTData_Graph_SimCases.png")
 PTData_Graph_SimCases
