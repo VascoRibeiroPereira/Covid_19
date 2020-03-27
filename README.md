@@ -9,18 +9,18 @@ I'll keep this repo with the graphs daily updated.
 ### Updated World Values
 __Total Deaths per Country - worst 10__
 
-|GeoId | Deaths|
+|geoId | deaths|
 |:-----|------:|
-|IT    |   7505|
-|ES    |   3434|
-|CN    |   3293|
-|IR    |   2077|
-|FR    |   1331|
-|US    |   1050|
-|UK    |    422|
-|NL    |    356|
-|DE    |    198|
-|BE    |    178|
+|IT    |   8165|
+|ES    |   4089|
+|CN    |   3298|
+|IR    |   2234|
+|FR    |   1696|
+|US    |   1296|
+|UK    |    578|
+|NL    |    434|
+|DE    |    253|
+|BE    |    220|
 
 
 ### Files

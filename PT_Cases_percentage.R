@@ -1,19 +1,19 @@
-Percentage <- data.frame("Total Cases" = NA)
-Percentage_Cases <- as_tibble()
-Percentage_Cases <- bind_rows(Percentage_Cases, Percentage)
-for (i in 2:length(PTdataArranged$Cases)){
+Percentage <- data.frame("Total cases" = NA)
+Percentage_cases <- as_tibble()
+Percentage_cases <- bind_rows(Percentage_cases, Percentage)
+for (i in 2:length(PTdataArranged$cases)){
         
         Percentage <- ((PTdataArranged[i, length(PTdataArranged)]-PTdataArranged[i-1, length(PTdataArranged)])*100/PTdataArranged[i-1, length(PTdataArranged)])
-        Percentage_Cases <- bind_rows(Percentage_Cases, Percentage)
+        Percentage_cases <- bind_rows(Percentage_cases, Percentage)
         
 }
 
-PTdataArranged <- bind_cols(PTdataArranged, "Percentage Cases" = Percentage_Cases$`Total Cases`)
+PTdataArranged <- bind_cols(PTdataArranged, "Percentage cases" = Percentage_cases$`Total cases`)
 
-gPercentage <- ggplot(PTdataArranged, aes(DateRep, `Percentage Cases`))
-percentageNewCasesPT <- gPercentage + stat_smooth(span = 3, col = "red", fullrange = TRUE) + geom_point() + labs(title = "% New Cases in Portugal") + theme(plot.title = element_text(hjust = 0.5))
-percentageNewCasesPT
+gPercentage <- ggplot(PTdataArranged, aes(dateRep, `Percentage cases`))
+percentageNewcasesPT <- gPercentage + stat_smooth(span = 3, col = "red", fullrange = TRUE) + geom_point() + labs(title = "% New cases in Portugal") + theme(plot.title = element_text(hjust = 0.5))
+percentageNewcasesPT
 
-png(filename = "percentageNewCasesPT.png")
-percentageNewCasesPT
+png(filename = "percentageNewcasesPT.png")
+percentageNewcasesPT
 dev.off()
