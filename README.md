@@ -6,6 +6,23 @@ I'm a Data Science Student, so I'm in a learning process and every input will be
 
 I'll keep this repo with the graphs daily updated.
 
+### Updated World Values
+__Total Deaths per Country - worst 10__
+
+|GeoId | Deaths|
+|:-----|------:|
+|IT    |   7505|
+|ES    |   3434|
+|CN    |   3293|
+|IR    |   2077|
+|FR    |   1331|
+|US    |   1050|
+|UK    |    422|
+|NL    |    356|
+|DE    |    198|
+|BE    |    178|
+
+
 ### Files
 `script.R` performs the data preparation and then followed by the steps required as described:
 
