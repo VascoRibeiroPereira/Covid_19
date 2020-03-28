@@ -16,7 +16,7 @@ ES_CN_merged$geoId <- factor(ES_CN_merged$geoId)
 gES_CN <- ggplot(ES_CN_merged, aes(DayNum, deaths))
 ES_CN_merged_Graph <- gES_CN + geom_smooth(aes(color = geoId)) + geom_vline(xintercept = c(45,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 700)) + labs(x = "Days") + labs(y = "deaths") + labs(title = "Spain vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "ES_CN_merged_Graph.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/ES_CN_merged_Graph.png")
 ES_CN_merged_Graph
 dev.off()
 
@@ -26,7 +26,7 @@ dev.off()
 gES_CN_cases <- ggplot(ES_CN_merged, aes(DayNum, cases))
 ES_CN_merged_Graph_cases <- gES_CN_cases + geom_smooth(aes(color = geoId)) + geom_vline(xintercept = c(45,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 6000)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Spain vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "ES_CN_merged_Graph_cases.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/ES_CN_merged_Graph_cases.png")
 ES_CN_merged_Graph_cases
 dev.off()
 

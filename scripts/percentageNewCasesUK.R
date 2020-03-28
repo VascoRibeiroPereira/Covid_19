@@ -29,6 +29,6 @@ gPercentageUK <- ggplot(UKdataArranged, aes(DateRep, `Percentage Cases`))
 percentageNewCasesUK <- gPercentageUK + stat_smooth(span = 3, col = "red", fullrange = TRUE) + geom_point() + labs(title = "% New Cases in UK") + theme(plot.title = element_text(hjust = 0.5))
 percentageNewCasesUK
 
-png(filename = "percentageNewCasesUK.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/percentageNewCasesUK.png")
 percentageNewCasesUK
 dev.off()

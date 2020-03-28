@@ -26,7 +26,7 @@ subset$geoId<- factor(subset$geoId)
 g <- ggplot(subset, aes(dateRep, deaths))
 subsetGraphs <- g + geom_line() + facet_wrap(.~geoId, nrow = 8, ncol = 9)
 
-png(filename = "./Covid_19/graphs/subsetGraphs.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/subsetGraphs.png")
 subsetGraphs
 dev.off()
 
@@ -48,7 +48,7 @@ PT_CN_merged$geoId <- factor(PT_CN_merged$geoId)
 gPT_CN <- ggplot(PT_CN_merged, aes(DayNum, deaths))
 PT_CN_merged_Graph <- gPT_CN + geom_smooth(aes(color = geoId)) + geom_vline(xintercept = c(16,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 120)) + labs(x = "Days") + labs(y = "deaths") + labs(title = "Portugal vs China death rate") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "./Covid_19/graphs/PT_CN_merged_Graph.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/PT_CN_merged_Graph.png")
 PT_CN_merged_Graph
 dev.off()
 
@@ -61,7 +61,7 @@ numberObs <- table(data$geoId)
 gcases <- ggplot(subset, aes(dateRep, cases))
 subsetGraphscases <- gcases + geom_line() + facet_wrap(.~geoId, nrow = 8, ncol = 9)
 
-png(filename = "./Covid_19/graphs/subsetGraphscases.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/subsetGraphscases.png")
 subsetGraphscases
 dev.off()
 
@@ -71,18 +71,18 @@ dev.off()
 gPT_CN_cases <- ggplot(PT_CN_merged, aes(DayNum, cases))
 PT_CN_merged_Graph_cases <- gPT_CN_cases + geom_smooth(aes(color = geoId)) + geom_vline(xintercept = c(16,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Portugal vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "./Covid_19/graphs/PT_CN_merged_Graph_cases.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/PT_CN_merged_Graph_cases.png")
 PT_CN_merged_Graph_cases
 dev.off()
 
 ## Only Portugal Data with the horizontal line for the limit capacity of the PT hospitals
 
-source("./Covid_19/PT_hospitals_capacity.R", echo = TRUE)
+source("PT_hospitals_capacity.R", echo = TRUE)
 
 gPTData_cases <- ggplot(PTdata, aes(DayNum, cases))
 PTData_Graph_cases <- gPTData_cases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Portugal new cases") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "./Covid_19/graphs/PTData_Graph_cases.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_cases.png")
 PTData_Graph_cases
 dev.off()
 
@@ -106,7 +106,7 @@ source("PT_hospitals_capacity.R", echo = TRUE)
 gPTData_Totalcases <- ggplot(PTdataArranged, aes(DayNum, `Total cases`))
 PTData_Graph_Totalcases <- gPTData_Totalcases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Total cases") + labs(title = "Portugal Total cases") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "./Covid_19/graphs/PTData_Graph_Totalcases.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Totalcases.png")
 PTData_Graph_Totalcases
 dev.off()
 
@@ -141,16 +141,16 @@ simulationNewcasesPT <- as_tibble(simulationNewcasesPT)
 gPTData_Simcases <- ggplot(simulationNewcasesPT, aes(dateRep, Total.cases))
 PTData_Graph_Simcases <- gPTData_Simcases + geom_point(aes(color = ID)) + geom_text(size=3, aes(label=ifelse(ID=="Simulated", Total.cases, "")), hjust=1.2, vjust=.5) + labs(y = "Total cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
 
-png(filename = "./Covid_19/graphs/PTData_Graph_Simcases.png")
+png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Simcases.png")
 PTData_Graph_Simcases
 dev.off()
 
 
 ## source("script.R", echo = TRUE) Run this code only
-## source("ES_CN.R", echo = TRUE)
-##source("IT_CN.R", echo = TRUE)
-## source("UK_CN.R", echo = TRUE)
-## source("ES_PT_IT.R", echo = TRUE)
+source("ES_CN.R", echo = TRUE)
+source("IT_CN.R", echo = TRUE)
+source("UK_CN.R", echo = TRUE)
+source("ES_PT_IT.R", echo = TRUE)
 
 
 
