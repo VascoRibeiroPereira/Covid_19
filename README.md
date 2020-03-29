@@ -51,27 +51,28 @@ __Total Death Count__: 26990
 
 In the folder __graphs__ you'll find the grahs:
 
-- Country comparisons of deaths and new cases
-`ES_CN_merged_Graph_cases.png`
-`ES_CN_merged_Graph.png`
-`ES_PT_IT_merged_Graph_cases.png`
-`ES_PT_IT_merged_Graph.png`
-`IT_CN_merged_Graph_cases.png`
-`IT_CN_merged_Graph.png`
-`PT_CN_merged_Graph_cases.png`
-`PT_CN_merged_Graph.png`
-`UK_CN_merged_Graph_cases.png`
-`UK_CN_merged_Graph.png`
+Country comparisons of deaths and new cases
 
-- Countries with more than 30 observations: plot of deaths and new cases
-`subsetGraphs.png`
-`subsetGraphscases.png`
+- `ES_CN_merged_Graph_cases.png`
+- `ES_CN_merged_Graph.png`
+- `ES_PT_IT_merged_Graph_cases.png`
+- `ES_PT_IT_merged_Graph.png`
+- `IT_CN_merged_Graph_cases.png`
+- `IT_CN_merged_Graph.png`
+- `PT_CN_merged_Graph_cases.png`
+- `PT_CN_merged_Graph.png`
+- `UK_CN_merged_Graph_cases.png`
+- `UK_CN_merged_Graph.png`
 
-- Analysis of COVID-19 in Portugal
-`percentageNewcasesPT.png`
-`PTData_Graph_cases.png `   
-`PTData_Graph_Simcases.png`
-`PTData_Graph_Totalcases.png`
+Countries with more than 30 observations: plot of deaths and new cases
+- `subsetGraphs.png`
+- `subsetGraphscases.png`
+
+Analysis of COVID-19 in Portugal
+- `percentageNewcasesPT.png`
+- `PTData_Graph_cases.png `   
+- `PTData_Graph_Simcases.png`
+- `PTData_Graph_Totalcases.png`
 
 
 ### The data source is from:
