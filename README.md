@@ -11,7 +11,7 @@ I'll keep this repo with the graphs daily updated.
 
 *Obtained with the script* `propagationMap.R`
 
-### Updated World Values
+### Updated World Values - 2020/03/29
 __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
@@ -28,6 +28,11 @@ __Total Deaths per Country - worst 10__
 |BE    |    289|
 
 __Total Death Count__: 26990
+
+__Portugal in Detail__
+|Country,Other |TotalCases |NewCases |TotalDeaths | NewDeaths|TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|1stcase |
+|:-------------|:----------|:--------|:-----------|---------:|:--------------|:-----------|:----------------|:----------------|-------------:|:-------|
+|Portugal      |5,962      |+792     |119         |        19|43             |5,800       |89  
 
 ### Scripts
 `script.R` performs the data preparation and then followed by the steps required as described:
@@ -49,7 +54,7 @@ __Total Death Count__: 26990
 
 ### Graphs
 
-In the folder __graphs__ you'll find the grahs:
+In the folder __graphs__ you'll find:
 
 Country comparisons of deaths and new cases
 
