@@ -8,3 +8,5 @@ totaldeaths <- sum(worlddeaths$deaths)
 totaldeaths 
 
 tableTest <- knitr::kable(WorstTen , caption = "deaths")
+
+## source("deathsCountry.R", echo = TRUE)

@@ -101,7 +101,7 @@ for (i in 2:length(PTdataArranged$cases)){
 }
 PTdataArranged <- bind_cols(PTdataArranged, "Total cases" = total_cases$cases)
 
-source("PT_hospitals_capacity.R", echo = TRUE)
+#source("PT_hospitals_capacity.R", echo = TRUE)
 
 gPTData_Totalcases <- ggplot(PTdataArranged, aes(DayNum, `Total cases`))
 PTData_Graph_Totalcases <- gPTData_Totalcases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Total cases") + labs(title = "Portugal Total cases") + theme(plot.title = element_text(hjust = 0.5))
