@@ -3,17 +3,43 @@ library(httr)
 library(dplyr)
 library(ggplot2)
 
+######################################################################
+#                                                                    #
+#                           Data source                              #
+#                                                                    #
+######################################################################
+
 #create the URL where the dataset is stored with automatic updates every day
 
-url <- paste("https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-",format(Sys.time(), "%Y-%m-%d"), ".xlsx", sep = "")
+### url <- paste("https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-",format(Sys.time(), "%Y-%m-%d"), ".xlsx", sep = "")
 
 #download the dataset from the website to a local temporary file
 
-GET(url, authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".xlsx")))
+### GET(url, authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".xlsx")))
 
 #read the Dataset sheet into “R”
 
-data <- read_excel(tf)
+### data <- read_excel(tf)
+
+######################################################################
+#                                                                    #
+# Alternative data source - comment the source that will not be used #
+#                                                                    #
+######################################################################
+
+library(jsonlite)
+
+url <- "https://opendata.ecdc.europa.eu/covid19/casedistribution/json"
+
+dataRaw <- read_json(url, simplifyVector = TRUE)
+data <- as_tibble(dataRaw$records)
+
+library(lubridate)
+
+data$dateRep <- dmy(data$dateRep)
+data$cases <- as.numeric(data$cases)
+data$deaths <- as.numeric(data$deaths)
+
 
 # study data with more than 30 days of observations
 numberObs <- table(data$geoId)
@@ -114,7 +140,7 @@ dev.off()
 
 source("PT_cases_percentage.R", echo = TRUE)
 
-increasePercentage <- sum(tail(PTdataArranged$`Percentage cases`,5))/5
+increasePercentage <- mean(tail(PTdataArranged$`Percentage cases`,5))
 
 simulationNewcasesPT <- data.frame(dateRep = PTdataArranged$dateRep, `Total cases` = PTdataArranged$`Total cases`, ID = rep("Real", length(PTdataArranged$dateRep)))
 TotalcasesSim <- simulationNewcasesPT$Total.cases[length(simulationNewcasesPT$Total.cases)]
@@ -151,6 +177,5 @@ source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
 source("UK_CN.R", echo = TRUE)
 source("ES_PT_IT.R", echo = TRUE)
-
-
+source("PT_NewCases_SimCurve.R", echo = TRUE)
 

@@ -29,7 +29,7 @@ __Total Deaths per Country - worst 10__
 
 __Total Death Count__: 26990
 
-__Portugal in Detail__
+__Portugal in Detail at 2020/03/29__ *sourced from https://www.worldometers.info/*
 |Country,Other |TotalCases |NewCases |TotalDeaths | NewDeaths|TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|1stcase |
 |:-------------|:----------|:--------|:-----------|---------:|:--------------|:-----------|:----------------|:----------------|-------------:|:-------|
 |Portugal      |5,962      |+792     |119         |        19|43             |5,800       |89  
