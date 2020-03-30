@@ -11,7 +11,7 @@ for (i in 2:length(PTdataArranged$cases)){
 PTdataArranged <- bind_cols(PTdataArranged, "Percentage cases" = Percentage_cases$`Total cases`)
 
 gPercentage <- ggplot(PTdataArranged, aes(dateRep, `Percentage cases`))
-percentageNewcasesPT <- gPercentage + stat_smooth(span = 3, col = "red", fullrange = TRUE) + geom_point() + labs(title = "% New cases in Portugal") + theme(plot.title = element_text(hjust = 0.5))
+percentageNewcasesPT <- gPercentage + stat_smooth(span = 3, col = rgb(0.8,0,0), fullrange = TRUE) + geom_point(col = rgb(0,0.3,0)) + labs(title = "% New cases in Portugal") + theme(plot.title = element_text(hjust = 0.5))
 
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/percentageNewcasesPT.png")
