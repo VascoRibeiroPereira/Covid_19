@@ -74,11 +74,12 @@ Countries with more than 30 observations: plot of deaths and new cases
 - `subsetGraphs.png`
 - `subsetGraphscases.png`
 
-Analysis of COVID-19 in Portugal
+Analysis of COVID-19 in Portugal (see also `PT_Cases_percentage.R`)
 - `percentageNewcasesPT.png`
 - `PTData_Graph_cases.png `   
 - `PTData_Graph_Simcases.png`
 - `PTData_Graph_Totalcases.png`
+- `PercentageDiffStudy.png` (Incongruence study of % new cases detection in Portugal)
 
 
 ### The data source is from:
