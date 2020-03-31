@@ -10,3 +10,5 @@ ExOffndrsRaw %>% dplyr::glimpse(45)
 Portugal <- filter(ExOffndrsRaw, `Country,Other` == "Portugal")
 tablePortugal <- knitr::kable(Portugal , caption = "deaths")
 tablePortugal
+
+## source("worldmeterScrap.R", echo = TRUE)
