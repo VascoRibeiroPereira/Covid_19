@@ -11,29 +11,29 @@ I'll keep this repo with the graphs daily updated.
 
 *Obtained with the script* `propagationMap.R`
 
-### Updated World Values - 2020/03/31
+### Updated World Values - 2020/04/01
 __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
 |:-----|------:|
-|IT    |  11591|
-|ES    |   7340|
-|CN    |   3309|
-|US    |   3170|
-|FR    |   3024|
-|IR    |   2757|
-|UK    |   1408|
-|NL    |    864|
-|DE    |    583|
-|BE    |    513|
+|IT    |  12430|
+|ES    |   8189|
+|US    |   4079|
+|FR    |   3523|
+|CN    |   3310|
+|IR    |   2898|
+|UK    |   1789|
+|NL    |   1039|
+|DE    |    732|
+|BE    |    705|
 
-__Total Death Count__: 37272
+__Total Death Count__: 41887
 
-__Portugal in Detail at 2020/03/31__ *sourced from https://www.worldometers.info/*
+__Portugal in Detail at 2020/04/01__ *sourced from https://www.worldometers.info/*
 
-|Country,Other |TotalCases |NewCases |TotalDeaths | NewDeaths|TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|Reported1st case |
-|:-------------|:----------|:--------|:-----------|---------:|:--------------|:-----------|:----------------|:----------------|-------------:|:----------------|
-|Portugal      |7,443      |+1,035   |160         |        20|43             |7,240       |188              |730              |            16|Mar 01           |
+|Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|Reported1st case |
+|:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|-------------:|:----------------|
+|Portugal      |8,251      |+808     |187         |+27       |43             |8,021       |230              |809              |            18|Mar 01           |
 
 ### Scripts
 `script.R` performs the data preparation and then followed by the steps required as described:
