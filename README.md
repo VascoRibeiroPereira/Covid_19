@@ -82,6 +82,9 @@ Analysis of COVID-19 in Portugal (see also `PT_Cases_percentage.R`)
 - `PercentageDiffStudy.png` (Incongruence study of % new cases detection in Portugal)
 
 
+Analysis of Twitter sentiments from 1000 Tweets with the hashtag #coronavirus (see also `Twitter_sentiments.R`)
+- `histSentimentTwitter.png`
+
 ### The data source is from:
 
 [Here](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide)
