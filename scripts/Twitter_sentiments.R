@@ -1,6 +1,16 @@
+library(twitteR)
+
+consumer_key <- ""
+consumer_secret <- ""
+access_token <- ""
+access_secret <- ""
+
+
+setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
+
+
 library(tidyverse)
 library(tidytext)
-library(twitteR)
 library(textdata)
 
 fn_twitter <- searchTwitter("#coronavirus",n=1000,lang="en")
