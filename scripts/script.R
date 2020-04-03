@@ -172,7 +172,9 @@ PTData_Graph_Simcases
 dev.off()
 
 
-## source("script.R", echo = TRUE) Run this code only
+## wd <- getwd()
+## setwd(paste(wd, "/scripts", sep = ""))
+## source("script.R", echo = TRUE)
 source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
 source("UK_CN.R", echo = TRUE)
