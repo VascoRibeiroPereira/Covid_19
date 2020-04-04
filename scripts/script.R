@@ -95,7 +95,7 @@ dev.off()
 
 # Ploting the Data
 gPT_CN_cases <- ggplot(PT_CN_merged, aes(DayNum, cases))
-PT_CN_merged_Graph_cases <- gPT_CN_cases + geom_smooth(aes(color = geoId)) + geom_vline(xintercept = c(16,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Portugal vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
+PT_CN_merged_Graph_cases <- gPT_CN_cases + geom_smooth(aes(color = geoId)) + geom_vline(xintercept = c(16,32), col = c(rgb(.1, .5, .6),rgb(1,.1,.3))) + coord_cartesian(ylim = c(0, 3500)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Portugal vs China new cases rate") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/PT_CN_merged_Graph_cases.png")
 PT_CN_merged_Graph_cases
@@ -106,7 +106,7 @@ dev.off()
 source("PT_hospitals_capacity.R", echo = TRUE)
 
 gPTData_cases <- ggplot(PTdata, aes(DayNum, cases))
-PTData_Graph_cases <- gPTData_cases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Portugal new cases") + theme(plot.title = element_text(hjust = 0.5))
+PTData_Graph_cases <- gPTData_cases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + geom_text(aes(0,capacity_PT,label =" PT Hospital Capacity", vjust = -1, hjust = -0.04)) + labs(x = "Days") + labs(y = "cases") + labs(title = "Portugal new cases") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_cases.png")
 PTData_Graph_cases
@@ -130,7 +130,7 @@ PTdataArranged <- bind_cols(PTdataArranged, "Total cases" = total_cases$cases)
 #source("PT_hospitals_capacity.R", echo = TRUE)
 
 gPTData_Totalcases <- ggplot(PTdataArranged, aes(DayNum, `Total cases`))
-PTData_Graph_Totalcases <- gPTData_Totalcases + geom_smooth() + geom_hline(yintercept = capacity_PT) + coord_cartesian(ylim = c(0, 4000)) + labs(x = "Days") + labs(y = "Total cases") + labs(title = "Portugal Total cases") + theme(plot.title = element_text(hjust = 0.5))
+PTData_Graph_Totalcases <- gPTData_Totalcases + geom_smooth() + geom_hline(yintercept = capacity_PT) + geom_text(aes(0,capacity_PT,label =" PT Hospital Capacity", vjust = -1, hjust = -0.04)) + labs(x = "Days") + labs(y = "Total cases") + labs(title = "Portugal Total cases") + theme(plot.title = element_text(hjust = 0.5))
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Totalcases.png")
 PTData_Graph_Totalcases
