@@ -39,7 +39,7 @@ sentimentTable <- fn_sentiment %>% filter(!is.na(sentiment)) %>% group_by(sentim
 gSentiment <- ggplot(sentimentTable, aes(sentiment, n))
 histSentimentTwitter <- gSentiment + geom_bar(stat="identity") + theme(axis.text.x = element_text(angle = 60, hjust = 1), plot.title = element_text(hjust = 0.5)) + xlab("") + ggtitle("Twitter #coronavirus Sentiments")
 
-png(filename = "~/R/Covid_19/Covid_19/graphs/histSentimentTwitter.png")
+png(filename = paste("~/R/Covid_19/Covid_19/graphs/histSentimentTwitter","-", Sys.Date(), ".png", sep=""))
 histSentimentTwitter
 dev.off()
 
