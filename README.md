@@ -11,29 +11,29 @@ I'll keep this repo with the graphs daily updated.
 
 *Obtained with the script* `propagationMap.R`
 
-### Updated World Values - 2020/04/05
+### Updated World Values - 2020/04/06
 __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
 |:-----|------:|
-|IT    |  15362|
-|ES    |  11744|
-|US    |   8501|
-|FR    |   7560|
-|UK    |   4313|
-|IR    |   3452|
-|CN    |   3333|
+|IT    |  15889|
+|ES    |  12418|
+|US    |   9647|
+|FR    |   8078|
+|UK    |   4934|
+|IR    |   3603|
+|CN    |   3335|
 |NL    |   1651|
-|DE    |   1342|
-|BE    |   1283|
+|BE    |   1447|
+|DE    |   1434|
 
-__Total Death Count__: 64400
+__Total Death Count__: 68976
 
-__Portugal in Detail at 2020/04/05__ *sourced from https://www.worldometers.info/*
+__Portugal in Detail at 2020/04/06__ *sourced from https://www.worldometers.info/*
 
 |Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|TotalTests |Tests/1M pop |
 |:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|-------------:|:----------|:------------|
-|Portugal      |11,278     |+754     |295         |+29       |75             |10,908      |267              |1,106            |            29|86,370     |8,470        |
+|Portugal      |11,730     |+452     |311         |+16       |140            |11,279      |270              |1,150            |            31|91,794     |9,002        |
 
 
 ### Scripts
