@@ -11,30 +11,29 @@ I'll keep this repo with the graphs daily updated.
 
 *Obtained with the script* `propagationMap.R`
 
-### Updated World Values - 2020/04/06
+### Updated World Values - 2020/04/07
 __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
 |:-----|------:|
-|IT    |  15889|
-|ES    |  12418|
-|US    |   9647|
-|FR    |   8078|
-|UK    |   4934|
-|IR    |   3603|
+|IT    |  16525|
+|ES    |  13055|
+|US    |  10989|
+|FR    |   8911|
+|UK    |   5373|
+|IR    |   3739|
 |CN    |   3335|
-|NL    |   1651|
-|BE    |   1447|
-|DE    |   1434|
+|NL    |   1867|
+|BE    |   1632|
+|DE    |   1607|
 
-__Total Death Count__: 68976
+__Total Death Count__: 74066
 
 __Portugal in Detail at 2020/04/06__ *sourced from https://www.worldometers.info/*
 
 |Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|TotalTests |Tests/1M pop |
 |:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|-------------:|:----------|:------------|
-|Portugal      |11,730     |+452     |311         |+16       |140            |11,279      |270              |1,150            |            31|91,794     |9,002        |
-
+|Portugal      |12,442     |+712     |345         |+34       |184            |11,913      |271              |1,220            |            34|121,256    |11,892       |
 
 ### Scripts
 `script.R` performs the data preparation and then followed by the steps required as described:

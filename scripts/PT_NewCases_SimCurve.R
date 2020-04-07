@@ -33,7 +33,7 @@ PTcases <- bind_rows(PTcases, simCases)
 PTcases$dateRep <- as.POSIXct(PTcases$dateRep)
 
 gSimCasesPT <- ggplot(PTcases, aes(dateRep, cases))
-PTgSimCases <- gSimCasesPT + geom_point(aes(color = ID)) + stat_peaks(col = "red", ignore_threshold = .9) + stat_peaks(geom="text", ignore_threshold = 0.80, x.label.fmt = "%Y-%m-%d", hjust=-0.1) + labs(y = "Cases") + labs(title = "Portugal new Cases Simulation") + theme(plot.title = element_text(hjust = 0.5)) + scale_color_viridis(discrete = TRUE, option = "E", end  = 0.9, begin = 0.4)
+PTgSimCases <- gSimCasesPT + geom_point(aes(color = ID)) + stat_peaks(col = "red", ignore_threshold = .9) + stat_peaks(geom="text", ignore_threshold = 0.9, x.label.fmt = "%Y-%m-%d", hjust=-0.1) + labs(y = "Cases") + labs(title = "Portugal new Cases Simulation") + theme(plot.title = element_text(hjust = 0.5)) + scale_color_viridis(discrete = TRUE, option = "E", end  = 0.9, begin = 0.4)
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/PTgSimCases.png")
 PTgSimCases
