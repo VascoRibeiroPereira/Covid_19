@@ -29,11 +29,11 @@ __Total Deaths per Country - worst 10__
 
 __Total Death Count__: 81478
 
-__Portugal in Detail at 2020/04/06__ *sourced from https://www.worldometers.info/*
+__Portugal in Detail at 2020/04/08__ *sourced from https://www.worldometers.info/*
 
-|Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop | Deaths/1M pop|TotalTests |Tests/1M pop |
-|:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|-------------:|:----------|:------------|
-|Portugal      |12,442     |+712     |345         |+34       |184            |11,913      |271              |1,220            |            34|121,256    |11,892       |
+|Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |
+|:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|
+|Portugal      |13,141     |+699     |380         |+35       |196            |12,565      |245              |1,289            |37            |128,784    |12,630       |
 
 ### Scripts
 `script.R` performs the data preparation and then followed by the steps required as described:
