@@ -179,7 +179,8 @@ source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
 source("UK_CN.R", echo = TRUE)
 source("ES_PT_IT.R", echo = TRUE)
-source("PT_NewCases_SimCurve.R", echo = TRUE)
+#source("PT_NewCases_SimCurve.R", echo = TRUE) deprecated
+source("Simutaion.R", echo = TRUE)
 source("deathsCountry.R", echo = TRUE)
 source("worldmeterScrap.R", echo = TRUE)
 
