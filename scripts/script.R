@@ -136,40 +136,40 @@ png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Totalcases.png")
 PTData_Graph_Totalcases
 dev.off()
 
-## SIMULATING DATA
+## SIMULATING DATA deprecated - check source("Simulation.R", echo = TRUE)
 
-source("PT_cases_percentage.R", echo = TRUE)
+#source("PT_cases_percentage.R", echo = TRUE)
 
-increasePercentage <- mean(tail(PTdataArranged$`Percentage cases`,5))
+#increasePercentage <- mean(tail(PTdataArranged$`Percentage cases`,5))
 
-simulationNewcasesPT <- data.frame(dateRep = PTdataArranged$dateRep, `Total cases` = PTdataArranged$`Total cases`, ID = rep("Real", length(PTdataArranged$dateRep)))
-TotalcasesSim <- simulationNewcasesPT$Total.cases[length(simulationNewcasesPT$Total.cases)]
-lastDate <- as.Date(simulationNewcasesPT$dateRep[length(simulationNewcasesPT$dateRep)])
-simDate <- seq.Date(lastDate+1, lastDate+5, by = "day")
+#simulationNewcasesPT <- data.frame(dateRep = PTdataArranged$dateRep, `Total cases` = PTdataArranged$`Total cases`, ID = rep("Real", length(PTdataArranged$dateRep)))
+#TotalcasesSim <- simulationNewcasesPT$Total.cases[length(simulationNewcasesPT$Total.cases)]
+#lastDate <- as.Date(simulationNewcasesPT$dateRep[length(simulationNewcasesPT$dateRep)])
+#simDate <- seq.Date(lastDate+1, lastDate+5, by = "day")
 
-for (i in 1:5) {
+#for (i in 1:5) {
         
-        TotalcasesSim[i+1] <- TotalcasesSim[i] + TotalcasesSim[i] * increasePercentage/100
-        #simTemp <- bind_cols(simTemp, TotalcasesSim)
+#        TotalcasesSim[i+1] <- TotalcasesSim[i] + TotalcasesSim[i] * increasePercentage/100
+#        #simTemp <- bind_cols(simTemp, TotalcasesSim)
+#
+#}
+#simTemp <- data.frame(dateRep = simDate, `Total cases` = TotalcasesSim[2:6], ID = rep("Simulated", 5))
 
-}
-simTemp <- data.frame(dateRep = simDate, `Total cases` = TotalcasesSim[2:6], ID = rep("Simulated", 5))
+#simTemp$Total.cases <- as.integer(simTemp$Total.cases)
+#simTemp$ID <- as.character(simTemp$ID)
 
-simTemp$Total.cases <- as.integer(simTemp$Total.cases)
-simTemp$ID <- as.character(simTemp$ID)
+#simulationNewcasesPT$dateRep <- as.Date(simulationNewcasesPT$dateRep)
+#simulationNewcasesPT$Total.cases <- as.integer(simulationNewcasesPT$Total.cases)
 
-simulationNewcasesPT$dateRep <- as.Date(simulationNewcasesPT$dateRep)
-simulationNewcasesPT$Total.cases <- as.integer(simulationNewcasesPT$Total.cases)
+#simulationNewcasesPT <- bind_rows(simulationNewcasesPT, simTemp)
+#simulationNewcasesPT <- as_tibble(simulationNewcasesPT)
 
-simulationNewcasesPT <- bind_rows(simulationNewcasesPT, simTemp)
-simulationNewcasesPT <- as_tibble(simulationNewcasesPT)
+#gPTData_Simcases <- ggplot(simulationNewcasesPT, aes(dateRep, Total.cases))
+#PTData_Graph_Simcases <- gPTData_Simcases + geom_point(aes(color = ID)) + geom_text(size=3, aes(label=ifelse(ID=="Simulated", Total.cases, "")), hjust=1.2, vjust=.5) + labs(y = "Total cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
 
-gPTData_Simcases <- ggplot(simulationNewcasesPT, aes(dateRep, Total.cases))
-PTData_Graph_Simcases <- gPTData_Simcases + geom_point(aes(color = ID)) + geom_text(size=3, aes(label=ifelse(ID=="Simulated", Total.cases, "")), hjust=1.2, vjust=.5) + labs(y = "Total cases") + labs(title = "Portugal 5-day Simulation") + theme(plot.title = element_text(hjust = 0.5))
-
-png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Simcases.png")
-PTData_Graph_Simcases
-dev.off()
+#png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Simcases.png")
+#PTData_Graph_Simcases
+#dev.off()
 
 
 ## wd <- getwd()
@@ -179,8 +179,9 @@ source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
 source("UK_CN.R", echo = TRUE)
 source("ES_PT_IT.R", echo = TRUE)
+source("PT_cases_percentage.R", echo = TRUE)
 #source("PT_NewCases_SimCurve.R", echo = TRUE) deprecated
-source("Simutaion.R", echo = TRUE)
+source("Simulation.R", echo = TRUE)
 source("deathsCountry.R", echo = TRUE)
 source("worldmeterScrap.R", echo = TRUE)
 

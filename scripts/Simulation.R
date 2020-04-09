@@ -1,3 +1,5 @@
+###### Simulation of new cases #####
+
 x <- 1:length(PTdataArranged$dateRep)
 y <- log10(PTdataArranged$cases)
 
@@ -17,7 +19,7 @@ yv <- predict(fit, list(x = xv, xsq = xv^2, xcub = xv^3))
 Prediction <- tibble(Day = xv, logCases = yv)
 PredictionCases <- tibble(Day = as.Date("2020-03-02")+xv, SimCases = as.integer(10^yv), 
                           RealCases = c(PTdataArranged$cases, rep(NA, 100-length(PTdataArranged$cases))))
-library(tidyquant)
+
 PredictionCases$Day <- as.POSIXct(PredictionCases$Day)
 
 curvePredict <- ggplot(PredictionCases, aes(Day, SimCases))
@@ -32,3 +34,28 @@ PTgSimCasesNEW <- curvePredict + geom_line() +
 png(filename = "~/R/Covid_19/Covid_19/graphs/PTgSimCases.png")
 PTgSimCasesNEW
 dev.off()
+
+################ Simulation of total Cases ##### With another aproach
+
+y <- PTdataArranged$`Total cases`
+x <- 1:length(PTdataArranged$dateRep)
+
+#plot(y ~ x)
+fit <- nls(y ~ SSlogis(x, Asym, xmid, scal), data = data.frame(x, y))
+simulatedTotalCases <- predict(fit, newdata = data.frame(x = seq(1, 100, length.out = 100)))
+
+PredictionTotalCases <- tibble(Day = as.Date("2020-03-02")+(1:100), SimCases = as.integer(simulatedTotalCases), 
+                               RealCases = c(PTdataArranged$`Total cases`, rep(NA, 100-length(PTdataArranged$`Total cases`))))
+
+PredictionTotalCases$Day <- as.POSIXct(PredictionTotalCases$Day)
+
+curveTotalPredict <- ggplot(PredictionTotalCases, aes(Day, SimCases))
+PTgSimTotalCasesNEW <- curveTotalPredict + geom_line() +
+        geom_point(aes(Day, RealCases), col = "springgreen2") +
+        labs(y = "Total Cases", x = "Date", title = "Portugal total Cases Simulation") +
+        theme(plot.title = element_text(hjust = 0.5))
+
+png(filename = "~/R/Covid_19/Covid_19/graphs/PTData_Graph_Simcases.png")
+PTgSimTotalCasesNEW
+dev.off()
+
