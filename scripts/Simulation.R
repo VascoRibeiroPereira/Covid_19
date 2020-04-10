@@ -1,3 +1,5 @@
+library(ggpmisc)
+
 ###### Simulation of new cases #####
 
 x <- 1:length(PTdataArranged$dateRep)

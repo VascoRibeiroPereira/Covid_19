@@ -29,6 +29,11 @@ tablePortugal
 
 #joinedDF <- inner_join(ExOffndrsRaw, dataInterest, by = "countriesAndTerritories")
 
+
+
+
+
+
 #NewObs <- tibble(country = joinedDF$`countriesAndTerritories`, cases = as.numeric(joinedDF$`Tot Cases/1M pop`), tests = as.numeric(joinedDF$`Tests/1M pop`), deaths = joinedDF$`Deaths/1M pop`, pop = joinedDF$pop*10^-3)
 #NewObsNArm <- remove_missing(NewObs)
 #NewObsMatrix <- as.matrix(column_to_rownames(NewObsNArm, var = "country"))
