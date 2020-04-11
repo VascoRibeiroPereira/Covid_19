@@ -93,7 +93,7 @@ Analysis of Twitter sentiments from 1000 Tweets with the hashtag #coronavirus (s
 
 ### Portugal New Cases Evolution
 
-Simulation of total cases for the next 5 days in Portugal.
+Simulation of total cases in Portugal.
 
 ![PTData_Graph_SimCases](https://github.com/VascoRibeiroPereira/Covid_19/blob/master/graphs/PTData_Graph_Simcases.png?raw=true)
 

@@ -25,6 +25,7 @@ PredictionCases$Day <- as.POSIXct(PredictionCases$Day)
 curvePredict <- ggplot(PredictionCases, aes(Day, SimCases))
 PTgSimCasesNEW <- curvePredict + geom_line() +
                 geom_point(aes(Day, RealCases), col = "springgreen4", pch = 15) +
+                geom_line(aes(Day, RealCases), col = "springgreen4") +
                 labs(y = "Cases per Day", x = "Date", title = "Portugal new Cases Simulation") +
                 stat_peaks(col = "tomato3", ignore_threshold = .9) +
                 stat_peaks(geom="text", ignore_threshold = .9, hjust=-0.1) +
