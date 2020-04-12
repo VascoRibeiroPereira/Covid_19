@@ -33,9 +33,7 @@ __Portugal in Detail at 2020/04/12__ *sourced from https://www.worldometers.info
 
 |Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |Continent |
 |:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|:---------|
-|Portugal      |15,987     |         |470         |          |266            |15,251      |233              |1,568            |46            |162,798    |15,966       |Europe    |
-
-
+|Portugal      |16,585     |+598     |504         |+34       |277            |15,804      |228              |1,627            |49            |162,798    |15,966       |Europe    |
 
 ### Scripts
 `script.R` performs the data preparation and then followed by the steps required as described:
