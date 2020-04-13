@@ -11,29 +11,30 @@ I'll keep this repo with the graphs daily updated.
 
 *Obtained with the script* `propagationMap.R`
 
-### Updated World Values - 2020/04/12
+### Updated World Values - 2020/04/13
 __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
 |:-----|------:|
-|US    |  20608|
-|IT    |  19470|
-|ES    |  16353|
-|FR    |  13832|
-|UK    |   9875|
-|IR    |   4357|
-|BE    |   3346|
-|CN    |   3343|
-|DE    |   2673|
-|NL    |   2643|
+|US    |  22108|
+|IT    |  19901|
+|ES    |  16972|
+|FR    |  14393|
+|UK    |  10612|
+|IR    |   4474|
+|BE    |   3600|
+|CN    |   3345|
+|DE    |   2799|
+|NL    |   2737|
 
-__Total Death Count__: 108306
+__Total Death Count__: 113513
 
-__Portugal in Detail at 2020/04/12__ *sourced from https://www.worldometers.info/*
+__Portugal in Detail at 2020/04/13__ *sourced from https://www.worldometers.info/*
 
-|Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |Continent |
-|:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|:---------|
-|Portugal      |16,585     |+598     |504         |+34       |277            |15,804      |228              |1,627            |49            |162,798    |15,966       |Europe    |
+|Country,Other |TotalCases |NewCases |TotalDeaths | NewDeaths|TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |Continent |
+|:-------------|:----------|:--------|:-----------|---------:|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|:---------|
+|Portugal      |16,585     |         |504         |        NA|277            |15,804      |228              |1,627            |49            |163,616    |16,046       |Europe    |
+
 
 ### Scripts
 `script.R` performs the data preparation and then followed by the steps required as described:
