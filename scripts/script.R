@@ -50,7 +50,7 @@ numberObs <- table(data$geoId)
 subset <- data[data$geoId %in% names(numberObs[numberObs > 30]),]
 subset$geoId<- factor(subset$geoId)
 g <- ggplot(subset, aes(dateRep, deaths))
-subsetGraphs <- g + geom_line() + facet_wrap(.~geoId, nrow = 11, ncol = 11)
+subsetGraphs <- g + geom_line() + facet_wrap(.~geoId, nrow = 15, ncol = 15)
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/subsetGraphs.png")
 subsetGraphs
@@ -85,7 +85,7 @@ numberObs <- table(data$geoId)
 
 # Plot the data
 gcases <- ggplot(subset, aes(dateRep, cases))
-subsetGraphscases <- gcases + geom_line() + facet_wrap(.~geoId, nrow = 11, ncol = 11)
+subsetGraphscases <- gcases + geom_line() + facet_wrap(.~geoId, nrow = 15, ncol = 15)
 
 png(filename = "~/R/Covid_19/Covid_19/graphs/subsetGraphscases.png")
 subsetGraphscases
