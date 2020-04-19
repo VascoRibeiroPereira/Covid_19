@@ -32,11 +32,9 @@ __Total Death Count__: 159511
 
 __Portugal in Detail at 2020/04/19__ *sourced from https://www.worldometers.info/*
 
-|Country,Other |TotalCases |NewCases |TotalDeaths | NewDeaths|TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |Continent |
-|:-------------|:----------|:--------|:-----------|---------:|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|:---------|
-|Portugal      |19,685     |         |687         |        NA|610            |18,388      |228              |1,931            |67            |235,878    |23,133       |Europe    |
-
-
+|Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |Continent |
+|:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|:---------|
+|Portugal      |20,206     |+521     |714         |+27       |610            |18,882      |224              |1,982            |70            |235,878    |23,133       |Europe    |
 
 
 ### Scripts
