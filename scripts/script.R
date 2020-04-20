@@ -172,9 +172,11 @@ dev.off()
 #dev.off()
 
 
-## wd <- getwd()
-## setwd(paste(wd, "/scripts", sep = ""))
-## source("script.R", echo = TRUE)
+## 
+
+#wd <- getwd()
+#setwd(paste(wd, "/scripts", sep = ""))
+#source("script.R", echo = TRUE)
 source("ES_CN.R", echo = TRUE)
 source("IT_CN.R", echo = TRUE)
 source("UK_CN.R", echo = TRUE)
