@@ -16,25 +16,25 @@ __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
 |:-----|------:|
-|US    |  45063|
-|IT    |  24648|
-|ES    |  21282|
-|FR    |  20796|
-|UK    |  17337|
-|BE    |   5998|
-|IR    |   5297|
-|DE    |   4879|
+|US    |  46784|
+|IT    |  25085|
+|ES    |  21717|
+|FR    |  21340|
+|UK    |  18100|
+|BE    |   6262|
+|IR    |   5391|
+|DE    |   5094|
 |CN    |   4636|
-|NL    |   3916|
+|NL    |   4054|
 
 
-__Total Death Count__: 176786
+__Total Death Count__: 182808
 
 __Portugal in Detail at 2020/04/22__ *sourced from https://www.worldometers.info/*
 
 |Country,Other |TotalCases |NewCases |TotalDeaths |NewDeaths |TotalRecovered |ActiveCases |Serious,Critical |Tot Cases/1M pop |Deaths/1M pop |TotalTests |Tests/1M pop |Continent |
 |:-------------|:----------|:--------|:-----------|:---------|:--------------|:-----------|:----------------|:----------------|:-------------|:----------|:------------|:---------|
-|Portugal      |21,982     |+603     |785         |+23       |1,143          |20,054      |207              |2,156            |77            |284,741    |27,925       |Europe    |
+|Portugal      |22,353     |+371     |820         |+35       |1,201          |20,332      |204              |2,192            |80            |300,525    |29,473       |Europe    |
 
 
 
