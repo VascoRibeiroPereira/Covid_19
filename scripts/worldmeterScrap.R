@@ -6,6 +6,7 @@ ExOffndrsRaw <- rvest::html_table(webpage)[[1]] %>%
         tibble::as_tibble(.name_repair = "unique") # repair the repeated columns
 ExOffndrsRaw %>% dplyr::glimpse(45)
 
+### this data have the problem that it doenst keep record per day. It sums every day... :(
 
 Portugal <- filter(ExOffndrsRaw, `Country,Other` == "Portugal")
 tablePortugal <- knitr::kable(Portugal , caption = "deaths")

@@ -11,24 +11,24 @@ I'll keep this repo with the graphs daily updated.
 
 *Obtained with the script* `propagationMap.R`
 
-### Updated World Values - 2020/04/25
+### Updated World Values - 2020/04/26
 __Total Deaths per Country - worst 10__
 
 |geoId | deaths|
 |:-----|------:|
-|US    |  51017|
-|IT    |  25969|
+|US    |  53189|
+|IT    |  26384|
+|FR    |  22614|
 |ES    |  22524|
-|FR    |  22245|
-|UK    |  19506|
-|BE    |   6679|
-|IR    |   5574|
-|DE    |   5500|
+|UK    |  20319|
+|BE    |   6917|
+|IR    |   5650|
+|DE    |   5640|
 |CN    |   4636|
-|NL    |   4289|
+|NL    |   4409|
 
 
-__Total Death Count__: 195387
+__Total Death Count__: 201315
 
 __Portugal in Detail at 2020/04/25__ *sourced from https://www.worldometers.info/*
 
