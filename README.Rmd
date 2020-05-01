@@ -1,0 +1,234 @@
+---
+title: "Covid19 PT Report"
+author: |
+        | [Vasco Pereira](https://www.linkedin.com/in/vascoribeirosintra/)
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+## Synopsis
+This is a data analysis report of the __public available__ data about Covid19 in Portugal. The report demonstrates how to download and process data, ranks Portugal by cases and deaths and demonstrates the pandemic evolution in this country. Some final remarks are made about the limited availability of the data provided.
+
+This report is also an example of reproducible research in data analysis making it possible to anyone to reproduce or adapt for any country.   
+
+## Raw Data   
+### World Data Source   
+The primarily data source used for this work was available by the **European Centre for Disease Prevention and Control**. By analyzing this data we can get a gist of the evolution of covid19 in the world. Some information were added trough time to this data, such as new formats. I choose the JSON format.   
+```{r world data download}
+library(jsonlite)
+library(dplyr)
+url <- "https://opendata.ecdc.europa.eu/covid19/casedistribution/json"
+dataRaw <- read_json(url, simplifyVector = TRUE)
+data <- as_tibble(dataRaw$records)
+str(data)
+```
+
+#### World Data Pre-Processing - getting Tiddy  
+Since all available variables are in character format I transformed the numeric values and date values into their respective formats.   
+```{r world data pre-processing}
+library(lubridate)
+data$dateRep <- dmy(data$dateRep)
+data$day <- as.numeric(data$day)
+data$month <- as.numeric(data$month)
+data$year <- as.numeric(data$year)
+data$cases <- as.numeric(data$cases)
+data$deaths <- as.numeric(data$deaths)
+data$popData2018 <- as.numeric(data$popData2018)
+str(data)
+```
+
+Now we can work with these numbers and make some exploratory analysis. Let’s check out a summary of our data:   
+```{r world data summary}
+summary(data)
+```
+
+Ok, something awkward is going on. The **new cases** variable have negative values, because, as one may notice, the minimum value is **`r min(data$cases)`**. There shouldn't be negative cases, and there is not an explanation available anywhere for this observations.   
+        >_I tried to address this issue with European Centre for Disease Prevention and Control without response._   
+
+One thing to always have in mind is the source of the data: our source must be **reliable and trustworthy**.   
+
+I will consider this some sort of correction to the number of reported cases and not mess with this awkward input values for the sake of a globally cohesive information.
+
+Now that I have a __somewhat__ tidy data, I can think a bit about the variables available:
+
+```{r world data variables}
+names(data)
+```
+
+The most interesting data I will address will be the number of detected **cases** and **deaths**, by **date reported**.   
+
+\newpage
+## Portugal in the World   
+How is Portugal rated in death and cases counts?
+There is some social media discussion about how to address this rates. Let us compare absolute numbers with percentages related to country population:
+
+```{r absolute number cases}
+CasesRank <- data %>% 
+        group_by(countriesAndTerritories) %>%
+        summarise("TotalCases" = sum(cases)) %>%
+        arrange(desc(TotalCases))
+
+PTrankCases <- grep("Portugal", CasesRank$countriesAndTerritories)
+
+numberofCases <- CasesRank %>% filter(countriesAndTerritories == "Portugal")
+numberofCases <- as.integer(numberofCases[2])
+
+knitr::kable(head(CasesRank, 10))
+```
+
+The above table reflects the ranked 10 worst countries in COVID-19 diagnosed cases. Portugal is ranked **`r PTrankCases`**, with **`r numberofCases`** total cases.   
+
+\newpage
+```{r absolute number deaths}
+DeathsRank <- data %>% 
+        group_by(countriesAndTerritories) %>%
+        summarise("TotalDeaths" = sum(deaths)) %>%
+        arrange(desc(TotalDeaths))
+
+PTrankDeaths <- grep("Portugal", DeathsRank$countriesAndTerritories)
+
+numberofDeaths <- DeathsRank %>% filter(countriesAndTerritories == "Portugal")
+numberofDeaths <- as.integer(numberofDeaths[2])
+
+knitr::kable(head(DeathsRank, 10))
+```
+
+The above table reflects the ranked 10 worst countries in COVID-19 deaths. Portugal is ranked **`r PTrankDeaths`**, with **`r numberofDeaths`** total deaths.   
+
+\newpage
+Let us now check the same rates in percentage.   
+
+```{r cases and deaths percentages}
+CasesPerRank <- data %>% 
+        group_by(countriesAndTerritories) %>%
+        summarise("TotalCases" = sum(cases), "Pop" = unique(popData2018)) %>%
+        mutate("PercentageCases" = TotalCases/Pop * 100) %>%
+        arrange(desc(PercentageCases))
+
+DeathsPerRank <- data %>% 
+        group_by(countriesAndTerritories) %>%
+        summarise("TotalDeaths" = sum(deaths), "Pop" = unique(popData2018)) %>%
+        mutate("PercentageDeaths" = TotalDeaths/Pop * 100) %>%
+        arrange(desc(PercentageDeaths))
+
+
+PTPerRankCases <- grep("Portugal", CasesPerRank$countriesAndTerritories)
+PTPerRankDeaths <- grep("Portugal", CasesPerRank$countriesAndTerritories)
+
+knitr::kable(head(CasesPerRank, 10))
+knitr::kable(head(DeathsPerRank, 10))
+```
+
+There are evident differences from percentage to absolute numbers in the extremes (but in fact Portugal doesn't change much at the time of this report writing). In percentage Portugal is in **`r PTPerRankCases`** place for cases and **`r PTPerRankDeaths`** for deaths.
+Is this a fair comparison? There may be missing variables to understand our data: some index of number of urban centers per country for example, and also the predominance of respiratory diseases, atmospheric pollution and elderly people percentage. Also, the number of tests each country do highly influence the reported cases. All this summed together can cause a great impact at the political level for managing the emergency states of each countries and interpreting the results. With too many unknown factors the effectiveness of some policies may result only by chance.   
+
+Since there are just too many unknown factors in the percentage rate maybe the fairest way to compare is the absolute numbers (aware of not being ideal as well).   
+
+\newpage
+## Evolution of the Disease in Portugal and Simulations
+
+In the next lines I try to simulate new cases and deaths from COVID-19 in Portugal with a 15 day advance from the last data reported and to identify a peak, where we could consider a turning point for the pandemic in Portugal, meaning that the contingency politics are taking effect.   
+
+```{r new cases with sim}
+PTdata <- filter(data, geoId == "PT")
+PTdataArranged <- arrange(PTdata, dateRep)
+
+library(ggpmisc)
+
+x <- 1:length(PTdataArranged$dateRep)
+y <- log10(PTdataArranged$cases)
+
+xsq <- x^2
+xcub <- x^3
+
+fit <- lm(y~x+xsq+xcub)
+
+xv <- seq(min(x), 100, 1)
+yv <- predict(fit, list(x = xv, xsq = xv^2, xcub = xv^3))
+
+#Prediction <- tibble(Day = xv, logCases = yv)
+PredictionCases <- tibble(Day = as.Date("2020-03-02")+xv, 
+                          SimCases = as.integer(10^yv), 
+                          RealCases = c(PTdataArranged$cases, rep(NA,
+                                                        100-length(PTdataArranged$cases))))
+PredictionCases$Day <- as.POSIXct(PredictionCases$Day)
+
+CasesMaxDay <- as.Date(PredictionCases$Day[
+        grep(max(PredictionCases$SimCases[1:length(PTdataArranged$cases)]), 
+             PredictionCases$SimCases)])
+
+curvePredict <- ggplot(PredictionCases, aes(Day, SimCases))
+PTgSimCasesNEW <- curvePredict + geom_line() +
+                geom_point(aes(Day, RealCases), col = "springgreen4", pch = 15) +
+                geom_line(aes(Day, RealCases), col = "springgreen4") +
+                labs(y = "Cases per Day", x = "Date", 
+                     title = "Portugal new Cases Simulation") +
+                stat_peaks(col = "tomato3", ignore_threshold = .9) +
+                theme(plot.title = element_text(hjust = 0.5)) +
+                coord_cartesian(xlim = c(PredictionCases$Day[1], as.POSIXct(Sys.Date() + 15)),
+                                ylim = c(0, 2000))
+PTgSimCasesNEW
+```
+
+```{r deaths with sim}
+
+z <- log10(PTdataArranged$deaths)
+z <- sub("-Inf", "0", z)
+
+fitD <- lm(z~x+xsq+xcub)
+
+xv <- seq(min(x), 100, 1)
+zv <- predict(fitD, list(x = xv, xsq = xv^2, xcub = xv^3))
+
+PredictionDeaths <- tibble(Day = as.Date("2020-03-02")+xv, 
+                          SimDeaths = as.integer(10^zv), 
+                          RealDeaths = c(PTdataArranged$deaths, rep(NA,
+                                                        100-length(PTdataArranged$deaths))))
+
+PredictionDeaths$Day <- as.POSIXct(PredictionDeaths$Day)
+
+DeathsMaxDay <- as.Date(PredictionDeaths$Day[
+        grep(max(PredictionDeaths$SimDeaths[1:length(PTdataArranged$deaths)]),
+             PredictionDeaths$SimDeaths)])
+
+curvePredictDeaths <- ggplot(PredictionDeaths, aes(Day, SimDeaths))
+PTgSimDeaths <- curvePredictDeaths + geom_line() +
+                geom_point(aes(Day, RealDeaths), col = "springgreen4", pch = 15) +
+                geom_line(aes(Day, RealDeaths), col = "springgreen4") +
+                labs(y = "Deaths per Day", x = "Date", 
+                     title = "Portugal Deaths Simulation") +
+                stat_peaks(col = "tomato3", ignore_threshold = .7) +
+                theme(plot.title = element_text(hjust = 0.5)) +
+                coord_cartesian(xlim = c(PredictionDeaths$Day[1], as.POSIXct(Sys.Date() + 15)))
+PTgSimDeaths
+ 
+```
+
+As we can observe from the graphs, the worst seems to have passed. The peak for new cases detected was in **`r CasesMaxDay`** and the peak for deaths in Portugal was in **`r DeathsMaxDay`**.   
+
+\newpage
+## Conclusions   
+
+- Cases: Portugal is ranked **`r PTrankCases`** in 207 countries, with **`r numberofCases`** total cases. Portugal had the peak of cases in **`r CasesMaxDay`**.   
+- Deaths: Portugal is ranked **`r PTrankDeaths`** in 207 countries, with **`r numberofDeaths`** total deaths. Portugal had the peak of deaths in **`r DeathsMaxDay`**.   
+
+
+The fact that the "peaks" have passed for the cases and deaths in Portugal doesn't mean that the problem is over. For example, the peaks are always moving around because every day the simulations are iterated with the new information available, and new policies and the end of the confinement may produce more peaks for new cases and deaths.   
+From comparing our country with the others, we are quite better than most countries. This is due to several factors, not only policies but also with our peripheric geo-location. Also, it must be observed the predominance of the disease in the north hemisphere of the planet - so our rank my improve greatly for the next months (our rank in the end of April is about 18th to 19th place), if there is some influence with the flu-season.    
+
+## Final Considerations   
+
+There is a lack of trustworthy data sources that would complement this data and give us detailed information  about the __how’s__ and __why’s__ of SARS-CoV-2 behavior. Interesting variables that I would consider worth studying would be: **Active Cases**, **Recovered Cases**, **ICU Cases**, **Non-ICU Hospitalized Cases**, and also some information about patients, like: **Known Diseases**, a logical or more informative **IfSmoker** variable and **Air Pollution Exposure**.
+
+Some of this information is retained by the “Sistema nacional de vigilância epidemiológica” 
+[**SINAVE**](https://www.google.com/search?client=safari&rls=en&q=sistema+nacional+de+vigil%C3%A2ncia+epidemiol%C3%B3gica&ie=UTF-8&oe=UTF-8)
+
+I’ve applied for access in 2020-04-27 from an institutional e-mail but not a reply until today.

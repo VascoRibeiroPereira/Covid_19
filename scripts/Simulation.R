@@ -29,7 +29,8 @@ PTgSimCasesNEW <- curvePredict + geom_line() +
                 labs(y = "Cases per Day", x = "Date", title = "Portugal new Cases Simulation") +
                 stat_peaks(col = "tomato3", ignore_threshold = .9) +
                 stat_peaks(geom="text", ignore_threshold = .9, hjust=-0.1) +
-                theme(plot.title = element_text(hjust = 0.5))
+                theme(plot.title = element_text(hjust = 0.5)) +
+                coord_cartesian(xlim = c(PredictionCases$Day[1], as.POSIXct(Sys.Date() + 15)))
                 
         
 png(filename = "~/R/Covid_19/Covid_19/graphs/PTgSimCases.png")
