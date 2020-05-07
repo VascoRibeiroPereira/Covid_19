@@ -3,7 +3,9 @@ library(ggpmisc)
 ###### Simulation of new cases #####
 
 x <- 1:length(PTdataArranged$dateRep)
+
 y <- log10(PTdataArranged$cases)
+y <- gsub("[-InfNaN]", 0, y)
 
 
 xsq <- x^2
