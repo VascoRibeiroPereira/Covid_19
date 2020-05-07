@@ -3,10 +3,7 @@ title: "Covid19 PT Report"
 author: |
         | [Vasco Pereira](https://www.linkedin.com/in/vascoribeirosintra/)
 date: "`r Sys.Date()`"
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
