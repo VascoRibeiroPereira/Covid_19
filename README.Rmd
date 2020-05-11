@@ -12,6 +12,8 @@ knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 ```
 
+Updated: `r Sys.Date()`
+
 ## Synopsis
 This is a data analysis report of the __public available__ data about Covid19 in Portugal. The report demonstrates how to download and process data, ranks Portugal by cases and deaths and demonstrates the pandemic evolution in this country. Some final remarks are made about the limited availability of the data provided.
 
