@@ -51,12 +51,9 @@ Now we can work with these numbers and make some exploratory analysis. Let’s c
 summary(data)
 ```
 
-Ok, something awkward is going on. The **new cases** variable have negative values, because, as one may notice, the minimum value is **`r min(data$cases)`**. There shouldn't be negative cases, and there is not an explanation available anywhere for this observations.   
-        >_I tried to address this issue with European Centre for Disease Prevention and Control without response._   
+Ok, something awkward is going on. The **new cases** and **deaths** variable have negative values, because, as one may notice, the minimum value is **`r min(data$cases)`** and **`r min(data$deaths)`** for each. There shouldn't be negative values, the only explanation available is mistakes in counts that are then corrected this way. This is possible the wrongest way to correct mistakes because one doesn't know for sure the real values of the mistaken day nor the negative cases/deaths day.      
 
 One thing to always have in mind is the source of the data: our source must be **reliable and trustworthy**.   
-
-I will consider this some sort of correction to the number of reported cases and not mess with this awkward input values for the sake of a globally cohesive information.
 
 Now that I have a __somewhat__ tidy data, I can think a bit about the variables available:
 
