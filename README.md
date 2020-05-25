@@ -1,4 +1,4 @@
-Updated: 2020-05-21
+Updated: 2020-05-25
 
 Synopsis
 --------
@@ -30,13 +30,13 @@ formats. I choose the JSON format.
     data <- as_tibble(dataRaw$records)
     str(data)
 
-    ## Classes 'tbl_df', 'tbl' and 'data.frame':    18412 obs. of  11 variables:
-    ##  $ dateRep                : chr  "21/05/2020" "20/05/2020" "19/05/2020" "18/05/2020" ...
-    ##  $ day                    : chr  "21" "20" "19" "18" ...
+    ## Classes 'tbl_df', 'tbl' and 'data.frame':    19248 obs. of  11 variables:
+    ##  $ dateRep                : chr  "25/05/2020" "24/05/2020" "23/05/2020" "22/05/2020" ...
+    ##  $ day                    : chr  "25" "24" "23" "22" ...
     ##  $ month                  : chr  "5" "5" "5" "5" ...
     ##  $ year                   : chr  "2020" "2020" "2020" "2020" ...
-    ##  $ cases                  : chr  "492" "581" "408" "262" ...
-    ##  $ deaths                 : chr  "9" "5" "4" "1" ...
+    ##  $ cases                  : chr  "584" "782" "540" "531" ...
+    ##  $ deaths                 : chr  "2" "11" "12" "6" ...
     ##  $ countriesAndTerritories: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
     ##  $ geoId                  : chr  "AF" "AF" "AF" "AF" ...
     ##  $ countryterritoryCode   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -58,13 +58,13 @@ numeric values and date values into their respective formats.
     data$popData2018 <- as.numeric(data$popData2018)
     str(data)
 
-    ## Classes 'tbl_df', 'tbl' and 'data.frame':    18412 obs. of  11 variables:
-    ##  $ dateRep                : Date, format: "2020-05-21" "2020-05-20" ...
-    ##  $ day                    : num  21 20 19 18 17 16 15 14 13 12 ...
+    ## Classes 'tbl_df', 'tbl' and 'data.frame':    19248 obs. of  11 variables:
+    ##  $ dateRep                : Date, format: "2020-05-25" "2020-05-24" ...
+    ##  $ day                    : num  25 24 23 22 21 20 19 18 17 16 ...
     ##  $ month                  : num  5 5 5 5 5 5 5 5 5 5 ...
     ##  $ year                   : num  2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 ...
-    ##  $ cases                  : num  492 581 408 262 0 ...
-    ##  $ deaths                 : num  9 5 4 1 0 32 6 3 5 2 ...
+    ##  $ cases                  : num  584 782 540 531 492 ...
+    ##  $ deaths                 : num  2 11 12 6 9 5 4 1 0 32 ...
     ##  $ countriesAndTerritories: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
     ##  $ geoId                  : chr  "AF" "AF" "AF" "AF" ...
     ##  $ countryterritoryCode   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -78,28 +78,28 @@ Let’s check out a summary of our data:
 
     ##     dateRep                day            month             year     
     ##  Min.   :2019-12-31   Min.   : 1.00   Min.   : 1.000   Min.   :2019  
-    ##  1st Qu.:2020-03-10   1st Qu.: 8.00   1st Qu.: 3.000   1st Qu.:2020  
-    ##  Median :2020-04-07   Median :15.00   Median : 4.000   Median :2020  
-    ##  Mean   :2020-03-30   Mean   :15.44   Mean   : 3.509   Mean   :2020  
-    ##  3rd Qu.:2020-04-29   3rd Qu.:22.00   3rd Qu.: 4.000   3rd Qu.:2020  
-    ##  Max.   :2020-05-21   Max.   :31.00   Max.   :12.000   Max.   :2020  
+    ##  1st Qu.:2020-03-12   1st Qu.: 9.00   1st Qu.: 3.000   1st Qu.:2020  
+    ##  Median :2020-04-09   Median :16.00   Median : 4.000   Median :2020  
+    ##  Mean   :2020-04-01   Mean   :15.79   Mean   : 3.574   Mean   :2020  
+    ##  3rd Qu.:2020-05-02   3rd Qu.:23.00   3rd Qu.: 5.000   3rd Qu.:2020  
+    ##  Max.   :2020-05-25   Max.   :31.00   Max.   :12.000   Max.   :2020  
     ##                                                                      
     ##      cases             deaths        countriesAndTerritories    geoId          
-    ##  Min.   :-2461.0   Min.   :   0.00   Length:18412            Length:18412      
+    ##  Min.   :-2461.0   Min.   :   0.00   Length:19248            Length:19248      
     ##  1st Qu.:    0.0   1st Qu.:   0.00   Class :character        Class :character  
     ##  Median :    2.0   Median :   0.00   Mode  :character        Mode  :character  
-    ##  Mean   :  269.4   Mean   :  17.81                                             
-    ##  3rd Qu.:   40.0   3rd Qu.:   1.00                                             
+    ##  Mean   :  279.1   Mean   :  17.91                                             
+    ##  3rd Qu.:   44.0   3rd Qu.:   1.00                                             
     ##  Max.   :48529.0   Max.   :4928.00                                             
     ##                                                                                
     ##  countryterritoryCode  popData2018        continentExp      
-    ##  Length:18412         Min.   :1.000e+03   Length:18412      
-    ##  Class :character     1st Qu.:2.254e+06   Class :character  
+    ##  Length:19248         Min.   :1.000e+03   Length:19248      
+    ##  Class :character     1st Qu.:2.119e+06   Class :character  
     ##  Mode  :character     Median :9.631e+06   Mode  :character  
-    ##                       Mean   :5.114e+07                     
-    ##                       3rd Qu.:3.603e+07                     
+    ##                       Mean   :5.053e+07                     
+    ##                       3rd Qu.:3.370e+07                     
     ##                       Max.   :1.393e+09                     
-    ##                       NA's   :241
+    ##                       NA's   :261
 
 Ok, something awkward is going on. The **new cases** and **deaths**
 variable have negative values, because, as one may notice, the minimum
@@ -156,49 +156,49 @@ absolute numbers with percentages related to country population:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">United_States_of_America</td>
-<td style="text-align: right;">1551853</td>
+<td style="text-align: right;">1643238</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Russia</td>
-<td style="text-align: right;">308705</td>
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">363211</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Brazil</td>
-<td style="text-align: right;">291579</td>
+<td style="text-align: left;">Russia</td>
+<td style="text-align: right;">344481</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">United_Kingdom</td>
-<td style="text-align: right;">248293</td>
+<td style="text-align: right;">259559</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Spain</td>
-<td style="text-align: right;">232555</td>
+<td style="text-align: right;">235772</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Italy</td>
-<td style="text-align: right;">227364</td>
+<td style="text-align: right;">229858</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Germany</td>
-<td style="text-align: right;">176752</td>
+<td style="text-align: right;">178570</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Turkey</td>
-<td style="text-align: right;">152587</td>
+<td style="text-align: right;">156827</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">France</td>
-<td style="text-align: right;">143845</td>
+<td style="text-align: right;">144921</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Iran</td>
-<td style="text-align: right;">126949</td>
+<td style="text-align: left;">India</td>
+<td style="text-align: right;">138845</td>
 </tr>
 </tbody>
 </table>
 
 The above table reflects the ranked 10 worst countries in COVID-19
-diagnosed cases. Portugal is ranked **26**, with **29660** total cases.
+diagnosed cases. Portugal is ranked **28**, with **30623** total cases.
 
     DeathsRank <- data %>% 
             group_by(countriesAndTerritories) %>%
@@ -222,49 +222,49 @@ diagnosed cases. Portugal is ranked **26**, with **29660** total cases.
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">United_States_of_America</td>
-<td style="text-align: right;">93439</td>
+<td style="text-align: right;">97720</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">United_Kingdom</td>
-<td style="text-align: right;">35704</td>
+<td style="text-align: right;">36793</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Italy</td>
-<td style="text-align: right;">32330</td>
+<td style="text-align: right;">32785</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">France</td>
-<td style="text-align: right;">28132</td>
+<td style="text-align: left;">Spain</td>
+<td style="text-align: right;">28752</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Spain</td>
-<td style="text-align: right;">27888</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">28367</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Brazil</td>
-<td style="text-align: right;">18859</td>
+<td style="text-align: right;">22666</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Belgium</td>
-<td style="text-align: right;">9150</td>
+<td style="text-align: right;">9280</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Germany</td>
-<td style="text-align: right;">8147</td>
+<td style="text-align: right;">8257</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Iran</td>
-<td style="text-align: right;">7183</td>
+<td style="text-align: right;">7417</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mexico</td>
-<td style="text-align: right;">6090</td>
+<td style="text-align: right;">7394</td>
 </tr>
 </tbody>
 </table>
 
 The above table reflects the ranked 10 worst countries in COVID-19
-deaths. Portugal is ranked **22**, with **1263** total deaths.
+deaths. Portugal is ranked **23**, with **1316** total deaths.
 
 Let us now check the same rates in percentage.
 
@@ -304,15 +304,15 @@ Let us now check the same rates in percentage.
 </tr>
 <tr class="even">
 <td style="text-align: left;">San_Marino</td>
-<td style="text-align: right;">656</td>
+<td style="text-align: right;">665</td>
 <td style="text-align: right;">33785</td>
-<td style="text-align: right;">1.9416901</td>
+<td style="text-align: right;">1.9683291</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Qatar</td>
-<td style="text-align: right;">37097</td>
+<td style="text-align: right;">43714</td>
 <td style="text-align: right;">2781677</td>
-<td style="text-align: right;">1.3336200</td>
+<td style="text-align: right;">1.5714981</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Holy_See</td>
@@ -322,39 +322,39 @@ Let us now check the same rates in percentage.
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Andorra</td>
-<td style="text-align: right;">762</td>
+<td style="text-align: right;">763</td>
 <td style="text-align: right;">77006</td>
-<td style="text-align: right;">0.9895333</td>
+<td style="text-align: right;">0.9908319</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Luxembourg</td>
-<td style="text-align: right;">3971</td>
+<td style="text-align: right;">3992</td>
 <td style="text-align: right;">607728</td>
-<td style="text-align: right;">0.6534173</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Singapore</td>
-<td style="text-align: right;">29364</td>
-<td style="text-align: right;">5638676</td>
-<td style="text-align: right;">0.5207605</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Iceland</td>
-<td style="text-align: right;">1803</td>
-<td style="text-align: right;">353574</td>
-<td style="text-align: right;">0.5099357</td>
+<td style="text-align: right;">0.6568728</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bahrain</td>
-<td style="text-align: right;">7888</td>
+<td style="text-align: right;">9138</td>
 <td style="text-align: right;">1569439</td>
-<td style="text-align: right;">0.5026000</td>
+<td style="text-align: right;">0.5822463</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ireland</td>
-<td style="text-align: right;">24315</td>
-<td style="text-align: right;">4853506</td>
-<td style="text-align: right;">0.5009781</td>
+<td style="text-align: left;">Singapore</td>
+<td style="text-align: right;">31616</td>
+<td style="text-align: right;">5638676</td>
+<td style="text-align: right;">0.5606990</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kuwait</td>
+<td style="text-align: right;">21302</td>
+<td style="text-align: right;">4137309</td>
+<td style="text-align: right;">0.5148757</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iceland</td>
+<td style="text-align: right;">1804</td>
+<td style="text-align: right;">353574</td>
+<td style="text-align: right;">0.5102185</td>
 </tr>
 </tbody>
 </table>
@@ -379,15 +379,15 @@ Let us now check the same rates in percentage.
 </tr>
 <tr class="even">
 <td style="text-align: left;">San_Marino</td>
-<td style="text-align: right;">41</td>
+<td style="text-align: right;">42</td>
 <td style="text-align: right;">33785</td>
-<td style="text-align: right;">0.1213556</td>
+<td style="text-align: right;">0.1243155</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Belgium</td>
-<td style="text-align: right;">9150</td>
+<td style="text-align: right;">9280</td>
 <td style="text-align: right;">11422068</td>
-<td style="text-align: right;">0.0801081</td>
+<td style="text-align: right;">0.0812462</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Andorra</td>
@@ -397,33 +397,33 @@ Let us now check the same rates in percentage.
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Spain</td>
-<td style="text-align: right;">27888</td>
+<td style="text-align: right;">28752</td>
 <td style="text-align: right;">46723749</td>
-<td style="text-align: right;">0.0596870</td>
+<td style="text-align: right;">0.0615362</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">United_Kingdom</td>
-<td style="text-align: right;">35704</td>
+<td style="text-align: right;">36793</td>
 <td style="text-align: right;">66488991</td>
-<td style="text-align: right;">0.0536991</td>
+<td style="text-align: right;">0.0553370</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Italy</td>
-<td style="text-align: right;">32330</td>
+<td style="text-align: right;">32785</td>
 <td style="text-align: right;">60431283</td>
-<td style="text-align: right;">0.0534988</td>
+<td style="text-align: right;">0.0542517</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">France</td>
-<td style="text-align: right;">28132</td>
+<td style="text-align: right;">28367</td>
 <td style="text-align: right;">66987244</td>
-<td style="text-align: right;">0.0419961</td>
+<td style="text-align: right;">0.0423469</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sweden</td>
-<td style="text-align: right;">3831</td>
+<td style="text-align: right;">3998</td>
 <td style="text-align: right;">10183175</td>
-<td style="text-align: right;">0.0376209</td>
+<td style="text-align: right;">0.0392608</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Sint_Maarten</td>
@@ -436,8 +436,8 @@ Let us now check the same rates in percentage.
 
 There are evident differences from percentage to absolute numbers in the
 extremes (but in fact Portugal doesn’t change much at the time of this
-report writing). In percentage Portugal is in **25** place for cases and
-**25** for deaths. Is this a fair comparison? There may be missing
+report writing). In percentage Portugal is in **27** place for cases and
+**27** for deaths. Is this a fair comparison? There may be missing
 variables to understand our data: some index of number of urban centers
 per country for example, and also the predominance of respiratory
 diseases, atmospheric pollution and elderly people percentage. Also, the
@@ -535,19 +535,20 @@ effect.
 ![](README_files/figure-markdown_strict/deaths%20with%20sim-1.png)
 
 As we can observe from the graphs, the worst seems to have passed. The
-peak for new cases detected was in **2020-04-05** and the peak for
-deaths in Portugal was in **2020-04-17, 2020-04-18, 2020-04-19,
-2020-04-20, 2020-04-21, 2020-04-22, 2020-04-23**.
+peak for new cases detected was in **2020-04-06** and the peak for
+deaths in Portugal was in **2020-04-14, 2020-04-15, 2020-04-16,
+2020-04-17, 2020-04-18, 2020-04-19, 2020-04-20, 2020-04-21, 2020-04-22,
+2020-04-23, 2020-04-24**.
 
 Conclusions
 -----------
 
--   Cases: Portugal is ranked **26** in 207 countries, with **29660**
-    total cases. Portugal had the peak of cases in **2020-04-05**.  
--   Deaths: Portugal is ranked **22** in 207 countries, with **1263**
-    total deaths. Portugal had the peak of deaths in **2020-04-17,
-    2020-04-18, 2020-04-19, 2020-04-20, 2020-04-21, 2020-04-22,
-    2020-04-23**.
+-   Cases: Portugal is ranked **28** in 207 countries, with **30623**
+    total cases. Portugal had the peak of cases in **2020-04-06**.  
+-   Deaths: Portugal is ranked **23** in 207 countries, with **1316**
+    total deaths. Portugal had the peak of deaths in **2020-04-14,
+    2020-04-15, 2020-04-16, 2020-04-17, 2020-04-18, 2020-04-19,
+    2020-04-20, 2020-04-21, 2020-04-22, 2020-04-23, 2020-04-24**.
 
 The fact that the “peaks” have passed for the cases and deaths in
 Portugal doesn’t mean that the problem is over. For example, the peaks
